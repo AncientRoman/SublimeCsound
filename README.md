@@ -2,13 +2,13 @@
 A Sublime Text 4 Plugin that adds Csound support and documentation.
 
 ## About
-This plugin uses syntax highlighting and completions from [CsoundST3](https://github.com/nikhilsinghmus/CsoundST3)
+This plugin uses syntax highlighting and completions from [CsoundST3](https://github.com/nikhilsinghmus/CsoundST3)<br>
 And adds more build systems and an ide-like documentation window inspired by CsoundQt.
 
 ![Csound Example](example.png)
 
 ## Installation
-Clone or download this repo into the Sublime Packages folder.
+Clone or download this repo into the Sublime Packages folder.<br>
 This plugin should work on MacOS, Linux, and Windows.
 
 ## Usage
@@ -19,15 +19,15 @@ To use the documentation:
 2. Change to two columns (View -> Layout -> Columns: 2) (or cmd-alt-2)
 3. Place your cursor within an opcode (e.g. oscili)
 
-The documentation is fetched from the web and cached.
+The documentation is fetched from the web and cached.<br>
 To clear the cache, use the command pallet to run the `Csound: Clear Documentation Cache` command.
 
 ## How it Works
 When the user selects (or moves their cursor to) text with a scope of support.function.csound
 1. The current word is grabbed
-2. A request is made to [http://www.csounds.com/manual/html/<word>.html]()
+2. A request is made to [http://www.csounds.com/manual/html/\<word\>.html]()
 3. The html is wrangled to loosely fit sublime's minihtml spec
-4. csound.css style is added (which originally came from [http://www.csounds.com/manual/html/csound.css]()
+4. csound.css style is added (which originally came from [http://www.csounds.com/manual/html/csound.css]())
 5. The resultant minihtml is displayed to the user in the second column
 
 ## What's New?
