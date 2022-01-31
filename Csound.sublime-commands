@@ -1,0 +1,6 @@
+[
+  {
+    "caption": "Csound: Clear Documentation Cache",
+    "command": "clear_csound_cache"
+  }
+]

@@ -1,0 +1,15 @@
+{
+	"cmd": ["csound", "-odac", "$file"],
+	"selector": "source.csound",
+
+	"variants": [
+		{
+			"name": "No Tables",
+			"cmd": ["csound", "-d", "-odac", "$file"]
+		},
+		{
+			"name": "Wav",
+			"cmd": ["csound", "-d", "--wave", "-o", "$file_base_name.wav", "$file"]
+		}
+	]
+}
