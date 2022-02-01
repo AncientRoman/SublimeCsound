@@ -1,11 +1,16 @@
+/**/
 /* This was taken directly from http://www.csounds.com/manual/html/csound.css */
 /* It is <link>'d in every html doc page so I inject it into every page before displaying that page with sublime's minihtml */
-/* Because sublime does not support all css attributes and values I have made the following changes: */
-/* Changed the font-size for refentrytitle on line 193 to 1.6em instead of xx-large
-/* Changed the background-color for pre.synopsis on line 273 */
-/* Changed the background-color pre.programlisting for on line 17 */
 /* */
+/* Because sublime does not support all css attributes and values I have made the following changes: */
+/* Changed the font-size for refentrytitle on line 200 to 1.6em instead of xx-large */
+/* Changed the background-color for pre.programlisting on line 23 */
+/* Changed the background-color for pre.screen on line 31 */
+/* Changed the background-color for pre.synopsis on line 280 */
+/* Added display: block; to the above pre's lines 27, 32, 281 */
+/**/
 /* And yes, these changes are for dark mode and won't work on light mode. But if you use light mode, honestly, do you even code bruh? */
+/**/
 
 
 /* csound.css - for Csound5 html manual                      */
@@ -19,10 +24,12 @@ pre.programlisting {
   border-style: dotted;
   border-width: 1px;
   border-color: #663333;
+  display: block;
 }
 
 pre.screen {
-  background-color: #f0f0f0; padding: 10px 2em;
+  background-color: #3a3a3a; padding: 10px 2em;
+  display: block;
 }
 
 div.literallayout {
@@ -271,6 +278,7 @@ p.title b {
 
 pre.synopsis {
   background-color: #404040; padding: 10px 2em;
+  display: block;
 }
 
 /* Syntax highlighting rules */

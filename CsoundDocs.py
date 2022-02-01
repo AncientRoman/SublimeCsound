@@ -60,6 +60,7 @@ class CsoundDocs(sublime_plugin.ViewEventListener):
 			page = re.sub(r"<div[^>]*?navfooter.*?</div>", "", page, flags=re.DOTALL) #and bottom nav links
 			page = page.replace("</pre>", "</pre><br>") #add a <br> after each <pre> (cause minihtml doesn't support pre)
 			page = re.sub(r"<pre.*?</pre>", lambda match: match.group(0).replace("\n", "<br>\n"), page, flags=re.DOTALL) #add a <br> after each newline in a <pre>
+			page = re.sub(r"<table.*?</table>", "<i>*** Table Removed (Sublime doesn't support html tables) ***</i>", page, flags=re.DOTALL)
 
 			#add links
 			page = re.sub(r"<a([^>]*?)href=\"(.*?)\"([^>].*?)>", "<a\\1href=\"{}\\2\"\\3>".format(self.BASE_URL), page) #make in-page links work
