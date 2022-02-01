@@ -44,8 +44,9 @@ class CsoundDocs(sublime_plugin.ViewEventListener):
 		if page == None:
 
 			#grab the page
+			link = "{}{}.html".format(self.BASE_URL, func)
 			try:
-				req = urllib.request.Request("{}{}.html".format(self.BASE_URL, func), headers={'User-Agent' : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:70.0) Gecko/20100101 Firefox/70.0"})
+				req = urllib.request.Request(link, headers={'User-Agent' : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:70.0) Gecko/20100101 Firefox/70.0"})
 				con = urllib.request.urlopen(req)
 				page = con.read().decode()
 			except urllib.error.HTTPError:
@@ -61,7 +62,8 @@ class CsoundDocs(sublime_plugin.ViewEventListener):
 			page = re.sub(r"<pre.*?</pre>", lambda match: match.group(0).replace("\n", "<br>\n"), page, flags=re.DOTALL) #add a <br> after each newline in a <pre>
 
 			#add links
-			page = re.sub(r"<a([^>]*?)href=\"(.*?)\"([^>].*?)>", "<a\\1href=\"{}\\2\"\\3>".format(self.BASE_URL), page)
+			page = re.sub(r"<a([^>]*?)href=\"(.*?)\"([^>].*?)>", "<a\\1href=\"{}\\2\"\\3>".format(self.BASE_URL), page) #make in-page links work
+			page = re.sub(r"(<span class=\"refentrytitle\">.*?</span>)", "<a href=\"{}\">\\1</a>".format(link), page) #add a link to the title
 
 			#update cache
 			cache.set(func, page)
