@@ -11,6 +11,7 @@ class CsoundDocs(sublime_plugin.ViewEventListener):
 
 	SYNTAX_FILE = "Csound.sublime-syntax"
 	SELECTOR = "support.function.csound"
+	BASE_URL = "http://www.csounds.com/manual/html/"
 
 	@classmethod
 	def is_applicable(cls, settings):
@@ -44,7 +45,7 @@ class CsoundDocs(sublime_plugin.ViewEventListener):
 
 			#grab the page
 			try:
-				req = urllib.request.Request("http://www.csounds.com/manual/html/{}.html".format(func), headers={'User-Agent' : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:70.0) Gecko/20100101 Firefox/70.0"})
+				req = urllib.request.Request("{}{}.html".format(self.BASE_URL, func), headers={'User-Agent' : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:70.0) Gecko/20100101 Firefox/70.0"})
 				con = urllib.request.urlopen(req)
 				page = con.read().decode()
 			except urllib.error.HTTPError:
@@ -58,6 +59,9 @@ class CsoundDocs(sublime_plugin.ViewEventListener):
 			page = re.sub(r"<div[^>]*?navfooter.*?</div>", "", page, flags=re.DOTALL) #and bottom nav links
 			page = page.replace("</pre>", "</pre><br>") #add a <br> after each <pre> (cause minihtml doesn't support pre)
 			page = re.sub(r"<pre.*?</pre>", lambda match: match.group(0).replace("\n", "<br>\n"), page, flags=re.DOTALL) #add a <br> after each newline in a <pre>
+
+			#add links
+			page = re.sub(r"<a([^>]*?)href=\"(.*?)\"([^>].*?)>", "<a\\1href=\"{}\\2\"\\3>".format(self.BASE_URL), page)
 
 			#update cache
 			cache.set(func, page)
