@@ -1,15 +1,15 @@
 {
-	"cmd": ["csound", "-odac", "$file"],
+	"cmd": ["csound", "-+msg_color=false", "-odac", "$file"],
 	"selector": "source.csound",
 
 	"variants": [
 		{
 			"name": "No Tables",
-			"cmd": ["csound", "-d", "-odac", "$file"]
+			"cmd": ["csound", "-+msg_color=false", "-d", "-odac", "$file"]
 		},
 		{
 			"name": "Wav",
-			"cmd": ["csound", "-d", "--wave", "-o", "$file_base_name.wav", "$file"]
+			"cmd": ["csound", "-+msg_color=false", "-d", "--wave", "-o", "$file_base_name.wav", "$file"]
 		}
 	]
 }
