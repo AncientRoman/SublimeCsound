@@ -1,0 +1,33 @@
+<snippet>
+	<scope>source.csound</scope>
+	<tabTrigger>&lt;CsoundSynthesizer</tabTrigger>
+	<content><![CDATA[<CsoundSynthesizer>
+<CsOptions>
+</CsOptions>
+
+<CsInstruments>
+
+sr = 44100
+kr = 4410
+ksmps = 10
+nchnls = 1
+
+instr 1
+	$0
+	out asig
+endin
+
+</CsInstruments>
+<CsScore>
+
+f1 0 4096 10 1 ; sine
+f2 0 4096 10 1 .5 .333 .25 .2 .166 .142 .125 .111 .1 ; sawtooth
+f3 0 4096 10 1 0 .333 0 .2 0 .142 0 .111 0 ; square
+f4 0 4096 10 1 0 .1111 0 .04 0 .0204 0 .0123 0 ; triangle
+
+</CsScore>
+
+<CsoundSynthesizer>
+]]></content>
+	<description>starting tags</description>
+</snippet>
