@@ -1,4 +1,4 @@
-# SublimeCsound v1.1.0
+# SublimeCsound v1.2.0
 A Sublime Text 4 Plugin that adds Csound support and documentation.
 
 ## About
@@ -35,6 +35,7 @@ When the user selects (or moves their cursor to) text with a scope of support.fu
 6. The resultant minihtml is displayed to the user in the second column
 
 ## What's New?
+v1.2: Added a boilerplate starting code snippet<br>
 v1.1: Links work, made the page title a link, updated and fixed styles, fixed random characters in the build results<br>
 v1.0: First version<br>
 <br>
